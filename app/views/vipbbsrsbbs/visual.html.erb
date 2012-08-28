@@ -1,0 +1,9 @@
+<table>
+
+	<tr>
+		<% @vipbbsrsbbs.each do |vipbbsrsbb| %>
+		<td class="<%= vipbbsrsbb.status %>"><%= link_to(vipbbsrsbb.ticket_num, :action => 'show', :id => vipbbsrsbb.id) %></td>
+		<% end %>	
+	</tr>
+
+</table>
