@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828074155) do
+ActiveRecord::Schema.define(:version => 20120829011857) do
 
   create_table "vipbbsrsbbs", :force => true do |t|
     t.string   "ticket_num"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20120828074155) do
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.boolean  "status",          :default => false
+    t.string   "section"
   end
 
 end

@@ -1,0 +1,18 @@
+//a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+a{color:#666;}
+
+.false, .true {border: 1px solid #000;text-align: center;width:20px;}
+.false{background-color: red;color:blue;}
+.true{background-color: green;color:white;}
+table a{text-decoration: none; color:#000;font-size: .6em;}
+table a:hover{color:#fff;}

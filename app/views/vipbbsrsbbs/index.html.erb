@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Ticket num</th>
-    <th>Quantity</th>
     <th>Company name</th>
     <th>Company contact</th>
     <th>Company email</th>
@@ -16,7 +15,6 @@
 <% @vipbbsrsbbs.each do |vipbbsrsbb| %>
   <tr>
     <td><%= vipbbsrsbb.ticket_num %></td>
-    <td><%= vipbbsrsbb.quantity %></td>
     <td><%= vipbbsrsbb.company_name %></td>
     <td><%= vipbbsrsbb.company_contact %></td>
     <td><%= vipbbsrsbb.company_email %></td>
@@ -26,6 +24,9 @@
     <td><%= link_to 'Destroy', vipbbsrsbb, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+
+
+
 </table>
 
 <br />

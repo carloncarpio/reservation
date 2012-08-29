@@ -78,11 +78,16 @@ class VipbbsrsbbsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to vipbbsrsbbs_url }
       format.json { head :no_content }
+      #format.js
     end
   end
 
   def visual
-    @vipbbsrsbbs = Vipbbsrsbb.all
+    @vipbbsrsbbs_a = Vipbbsrsbb.find_section('A')
+    @vipbbsrsbbs_b = Vipbbsrsbb.find_section('B')
+    @vipbbsrsbbs_c = Vipbbsrsbb.find_section('C')
+    @vipbbsrsbbs_d = Vipbbsrsbb.find_section('D')
+    @vipbbsrsbbs_e = Vipbbsrsbb.find_section('E')
   end
 
   
