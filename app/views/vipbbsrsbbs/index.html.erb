@@ -11,9 +11,8 @@
     <th></th>
     <th></th>
   </tr>
-
 <% @vipbbsrsbbs.each do |vipbbsrsbb| %>
-  <tr>
+  <tr id='<%= dom_id vipbbsrsbb %>'>
     <td><%= vipbbsrsbb.ticket_num %></td>
     <td><%= vipbbsrsbb.company_name %></td>
     <td><%= vipbbsrsbb.company_contact %></td>
@@ -21,12 +20,9 @@
     <td><%= vipbbsrsbb.status %></td>
     <td><%= link_to 'Show', vipbbsrsbb %></td>
     <td><%= link_to 'Edit', edit_vipbbsrsbb_path(vipbbsrsbb) %></td>
-    <td><%= link_to 'Destroy', vipbbsrsbb, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', vipbbsrsbb, confirm: 'Are you sure?', method: :delete, remote: true %></td>
   </tr>
 <% end %>
-
-
-
 </table>
 
 <br />

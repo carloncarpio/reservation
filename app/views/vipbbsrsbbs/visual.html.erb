@@ -1,29 +1,44 @@
-<table>
+<div class="container">
+<h1>Section VIP BB / SRS BB</h1>
+<p>Welcome <%= session[:username] %> | <%= link_to 'logout', :action => 'logout' %></p>
+
+<table id="visual_vipbbsrsbb">
 	<tr>
 		<% @vipbbsrsbbs_a.each do |vipbbsrsbb_a| %>
-		<td class="<%= vipbbsrsbb_a.status %>"><%= link_to(vipbbsrsbb_a.ticket_num, :action => 'show', :id => vipbbsrsbb_a.id) %></td>
+		<td id='<%= dom_id vipbbsrsbb_a %>' class="<%= vipbbsrsbb_a.status %>">
+			<%= link_to vipbbsrsbb_a.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_a.id}, remote: true %></td>
 		<% end %>	
 	</tr>
+
 	<tr>
 		<% @vipbbsrsbbs_b.each do |vipbbsrsbb_b| %>
-		<td class="<%= vipbbsrsbb_b.status %>"><%= link_to(vipbbsrsbb_b.ticket_num, :action => 'show', :id => vipbbsrsbb_b.id) %></td>
+		<td id='<%= dom_id vipbbsrsbb_b %>' class="<%= vipbbsrsbb_b.status %>">
+			<%= link_to vipbbsrsbb_b.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_b.id}, remote: true %></td>
 		<% end %>	
 	</tr>
-		<tr>
+
+	<tr>
 		<% @vipbbsrsbbs_c.each do |vipbbsrsbb_c| %>
 		<td class="<%= vipbbsrsbb_c.status %>"><%= link_to(vipbbsrsbb_c.ticket_num, :action => 'show', :id => vipbbsrsbb_c.id) %></td>
 		<% end %>	
 	</tr>
-	</tr>
-		<tr>
+
+	
+	<tr>
 		<% @vipbbsrsbbs_d.each do |vipbbsrsbb_d| %>
 		<td class="<%= vipbbsrsbb_d.status %>"><%= link_to(vipbbsrsbb_d.ticket_num, :action => 'show', :id => vipbbsrsbb_d.id) %></td>
 		<% end %>	
 	</tr>
-	</tr>
-		<tr>
+
+	<tr>
 		<% @vipbbsrsbbs_e.each do |vipbbsrsbb_e| %>
 		<td class="<%= vipbbsrsbb_e.status %>"><%= link_to(vipbbsrsbb_e.ticket_num, :action => 'show', :id => vipbbsrsbb_e.id) %></td>
 		<% end %>	
 	</tr>
 </table>
+
+<%= link_to 'Back To List', :action => 'index' %>
+
+
+</div>
+

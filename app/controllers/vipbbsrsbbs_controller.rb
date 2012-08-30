@@ -77,8 +77,8 @@ class VipbbsrsbbsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to vipbbsrsbbs_url }
-      format.json { head :no_content }
-      #format.js
+      #format.json { head :no_content }
+      format.js 
     end
   end
 
@@ -90,6 +90,45 @@ class VipbbsrsbbsController < ApplicationController
     @vipbbsrsbbs_e = Vipbbsrsbb.find_section('E')
   end
 
-  
+  def update_status
+     @vipbbsrsbb = Vipbbsrsbb.find(params[:id])
+
+     respond_to do |format|
+      if @vipbbsrsbb.status == false
+        if @vipbbsrsbb.update_attribute :status, true
+           @vipbbsrsbb.update_attribute :company_name, session[:company_name]
+           @vipbbsrsbb.update_attribute :company_contact, session[:company_contact]
+           @vipbbsrsbb.update_attribute :company_email, session[:company_email]
+          #format.html { redirect_to @vipbbsrsbb, notice: 'Vipbbsrsbb was successfully updated.' }
+          #format.json { head :no_content }
+          format.js 
+        else
+          #format.html { render action: "edit" }
+          #format.json { render json: @vipbbsrsbb.errors, status: :unprocessable_entity }
+        end
+      else
+        if @vipbbsrsbb.update_attribute :status, false
+           @vipbbsrsbb.update_attribute :company_name, nil
+           @vipbbsrsbb.update_attribute :company_contact, nil
+           @vipbbsrsbb.update_attribute :company_email, nil
+          #format.html { redirect_to @vipbbsrsbb, notice: 'Vipbbsrsbb was successfully updated.' }
+          #format.json { head :no_content }
+           format.js
+        else
+          #format.html { render action: "edit" }
+          #format.json { render json: @vipbbsrsbb.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  end
+
+  def logout
+    session[:username] = nil
+    session[:id] = nil
+    session[:company_name] = nil
+    session[:company_email] = nil
+    session[:company_contact] = nil
+    redirect_to :controller => 'access', :action => 'index'
+  end
 
 end

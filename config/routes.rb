@@ -1,5 +1,13 @@
 Reservation::Application.routes.draw do
+  get "access/login"
+
+  get "access/menu"
+
+  resources :users
+
   resources :vipbbsrsbbs
+
+  match 'signup' => 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -50,7 +58,7 @@ Reservation::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  #root :to => 'welcome#index'
+  root :to => 'access#index'
 
   # See how all your routes lay out with "rake routes"
 
