@@ -1,44 +1,77 @@
 <div class="container">
-<h1>Section VIP BB / SRS BB</h1>
-<p>Welcome <%= session[:username] %> | <%= link_to 'logout', :action => 'logout' %></p>
+	<div class="body_content">	
+	<h3>Section VIP BB / SRS BB</h3>
 
-<table id="visual_vipbbsrsbb">
-	<tr>
-		<% @vipbbsrsbbs_a.each do |vipbbsrsbb_a| %>
-		<td id='<%= dom_id vipbbsrsbb_a %>' class="<%= vipbbsrsbb_a.status %>">
-			<%= link_to vipbbsrsbb_a.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_a.id}, remote: true %></td>
-		<% end %>	
-	</tr>
+	<table id="visual_vipbbsrsbb">
+		<tr>
+			<% @vipbbsrsbbs_a.each do |vipbbsrsbb_a| %>
+			<td id='<%= dom_id vipbbsrsbb_a %>' class="<%= vipbbsrsbb_a.status %>">
+				<% if vipbbsrsbb_a.status == false %>
+				<%= link_to vipbbsrsbb_a.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_a.id}, remote: true %></td>
+				<% else %>
+					<%= link_to vipbbsrsbb_a.ticket_num %>
+				<% end %>
+			<% end %>	
+		</tr>
 
-	<tr>
-		<% @vipbbsrsbbs_b.each do |vipbbsrsbb_b| %>
-		<td id='<%= dom_id vipbbsrsbb_b %>' class="<%= vipbbsrsbb_b.status %>">
-			<%= link_to vipbbsrsbb_b.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_b.id}, remote: true %></td>
-		<% end %>	
-	</tr>
+		<tr>
+			<% @vipbbsrsbbs_b.each do |vipbbsrsbb_b| %>
+			<td id='<%= dom_id vipbbsrsbb_b %>' class="<%= vipbbsrsbb_b.status %>">
+				<%= link_to vipbbsrsbb_b.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_b.id}, remote: true %></td>
+			<% end %>	
+		</tr>
 
-	<tr>
-		<% @vipbbsrsbbs_c.each do |vipbbsrsbb_c| %>
-		<td class="<%= vipbbsrsbb_c.status %>"><%= link_to(vipbbsrsbb_c.ticket_num, :action => 'show', :id => vipbbsrsbb_c.id) %></td>
-		<% end %>	
-	</tr>
+		<tr>
+			<% @vipbbsrsbbs_c.each do |vipbbsrsbb_c| %>
+			<td id='<%= dom_id vipbbsrsbb_c %>' class="<%= vipbbsrsbb_c.status %>">
+				<%= link_to vipbbsrsbb_c.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_c.id}, remote: true %></td>
+			<% end %>	
+		</tr>
 
-	
-	<tr>
-		<% @vipbbsrsbbs_d.each do |vipbbsrsbb_d| %>
-		<td class="<%= vipbbsrsbb_d.status %>"><%= link_to(vipbbsrsbb_d.ticket_num, :action => 'show', :id => vipbbsrsbb_d.id) %></td>
-		<% end %>	
-	</tr>
+		
+		<tr>
+			<% @vipbbsrsbbs_d.each do |vipbbsrsbb_d| %>
+			<td id='<%= dom_id vipbbsrsbb_d %>' class="<%= vipbbsrsbb_d.status %>">
+				<%= link_to vipbbsrsbb_d.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_d.id}, remote: true %></td>
+			<% end %>	
+		</tr>
 
-	<tr>
-		<% @vipbbsrsbbs_e.each do |vipbbsrsbb_e| %>
-		<td class="<%= vipbbsrsbb_e.status %>"><%= link_to(vipbbsrsbb_e.ticket_num, :action => 'show', :id => vipbbsrsbb_e.id) %></td>
-		<% end %>	
-	</tr>
-</table>
+		<tr>
+			<% @vipbbsrsbbs_e.each do |vipbbsrsbb_e| %>
+			<td id='<%= dom_id vipbbsrsbb_e %>' class="<%= vipbbsrsbb_e.status %>">
+				<%= link_to vipbbsrsbb_e.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_e.id}, remote: true %></td>
+			<% end %>	
+		</tr>
+	</table>
 
-<%= link_to 'Back To List', :action => 'index' %>
+	<%= link_to 'Back To List', {:action => 'index'}, :class => 'btn btn-primary' %>
 
+	</div><!-- body_content -->
 
-</div>
+	<div id="my_reserve">
+		<% if session[:username] == 'admin' %>
+			<table>
+			<% @vipbbsrsbbs_with.each do |my| %>
+				<tr>
+					<td><%= my.ticket_num %> - <%= my.company_name %></td>
+				</tr>
+			<% end %>
+			</table>
+		<% else %>
+			<table>
+				<h4>My Reservation</h4>
+					<% if @my_vipbbsrsbbs.empty? %>
+						<p>You have no reservation for this section</p>
+					<% else %>
+					<% @my_vipbbsrsbbs.each do |my| %>
+						<tr>
+							<td><%= my.ticket_num %> - <%= my.company_name %></td>
+						</tr>
+					<% end %>
+					<% end %>
+			</table>
+		<% end %>
+	</div>
+
+</div><!-- container -->
 

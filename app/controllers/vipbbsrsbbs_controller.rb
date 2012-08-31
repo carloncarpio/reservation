@@ -3,11 +3,25 @@ class VipbbsrsbbsController < ApplicationController
   # GET /vipbbsrsbbs.json
   def index
     @vipbbsrsbbs = Vipbbsrsbb.all
+    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'A')
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @vipbbsrsbbs }
     end
+  end
+
+  def index_b
+    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'B')
+  end
+  def index_c
+    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'C')
+  end
+  def index_d
+    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'D')
+  end
+  def index_e
+    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'E')
   end
 
   # GET /vipbbsrsbbs/1
@@ -88,6 +102,10 @@ class VipbbsrsbbsController < ApplicationController
     @vipbbsrsbbs_c = Vipbbsrsbb.find_section('C')
     @vipbbsrsbbs_d = Vipbbsrsbb.find_section('D')
     @vipbbsrsbbs_e = Vipbbsrsbb.find_section('E')
+
+    @vipbbsrsbbs_with = Vipbbsrsbb.where(:status => true)
+    @vipbbsrsbbs = Vipbbsrsbb.all
+    @my_vipbbsrsbbs = Vipbbsrsbb.find_reserve(session[:company_name])
   end
 
   def update_status
@@ -129,6 +147,10 @@ class VipbbsrsbbsController < ApplicationController
     session[:company_email] = nil
     session[:company_contact] = nil
     redirect_to :controller => 'access', :action => 'index'
+  end
+
+  def my_reserve
+    @my_vipbbsrsbbs = Vipbbsrsbb.where(:company_name => session[:company_name])
   end
 
 end

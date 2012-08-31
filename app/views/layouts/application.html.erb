@@ -26,9 +26,13 @@
           	  <li><%= link_to 'Home', root_path %></li>
             </ul>
           </div><!--/.nav-collapse -->
-           <div id="signup">
-     			<%= link_to 'Sign Up', signup_path %> 		
-      	   </div>
+          <% if session[:username] %>
+            <div class="welcome">
+              <p>Welcome <%= session[:username] %> | <%= link_to 'logout', :action => 'logout' %></p>
+            </div>
+           <% else %>
+            <div id="signup"><%= link_to 'Sign Up', signup_path %></div>
+           <% end %>
         </div>
       </div>
     </div>

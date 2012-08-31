@@ -17,6 +17,7 @@ class AccessController < ApplicationController
   		session[:company_contact] = authorize_user.company_contact
   		redirect_to(:controller => 'Vipbbsrsbbs', :action => 'visual')
   	else
+      flash[:notice] = 'Invalid Username/Password'
   		redirect_to(:action => 'index')
   	end
   end
