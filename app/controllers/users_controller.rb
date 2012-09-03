@@ -41,9 +41,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    @vipbbsrsbbs = Vipbbsrsbb.all
     respond_to do |format|
       if @user.save
+        UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -80,4 +81,12 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def send_mail
+    #UserMailer.registration_confirmation(@user).deliver  
+    UserMailer.gmail_message
+    flash[:notice] = "Your message has been sent"
+    redirect_to root_path
+  end
+
 end
