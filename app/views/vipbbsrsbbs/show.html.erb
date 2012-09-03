@@ -1,3 +1,5 @@
+<br /><br /><br />
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -30,10 +32,16 @@
 </p>
 
 <p>
-  <b>Approved:</b>
+  <b>Status:</b>
   <%= @vipbbsrsbb.status %>
 </p>
 
+<p>
+  <b>Approved:</b>
+  <%= @vipbbsrsbb.approved %>
+</p>
 
-<%= link_to 'Edit', edit_vipbbsrsbb_path(@vipbbsrsbb) %> |
-<%= link_to 'Back', vipbbsrsbbs_path %>
+
+<%= link_to 'Edit', edit_vipbbsrsbb_path(@vipbbsrsbb), :class => 'btn btn-primary' %>
+<%= link_to 'Back', vipbbsrsbbs_path, :class => 'btn btn-primary' %>
+</div>

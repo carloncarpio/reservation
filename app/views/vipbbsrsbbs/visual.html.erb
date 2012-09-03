@@ -5,68 +5,88 @@
 	<table id="visual_vipbbsrsbb">
 		<tr>
 			<% @vipbbsrsbbs_a.each do |vipbbsrsbb_a| %>
-			<td id='<%= dom_id vipbbsrsbb_a %>' class="<%= vipbbsrsbb_a.status %>">
-				<% if vipbbsrsbb_a.status == false %>
-				<%= link_to vipbbsrsbb_a.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_a.id}, remote: true %></td>
-				<% elsif vipbbsrsbb_a.status == true && session[:company_name] == vipbbsrsbb_a.company_name %>
-				<%= link_to vipbbsrsbb_a.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_a.id}, remote: true %></td>		
+				<% if vipbbsrsbb_a.approved == 'yes' %>
+					<td class="<%= vipbbsrsbb_a.status %>"><a><%= vipbbsrsbb_a.ticket_num %></a></td>
 				<% else %>
-					<%= link_to vipbbsrsbb_a.ticket_num %>
+				<td id='<%= dom_id vipbbsrsbb_a %>' class="<%= vipbbsrsbb_a.status %>">
+					<% if vipbbsrsbb_a.status == false %>
+					<%= link_to vipbbsrsbb_a.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_a.id}, remote: true %></td>
+					<% elsif vipbbsrsbb_a.status == true && session[:company_name] == vipbbsrsbb_a.company_name %>
+					<%= link_to vipbbsrsbb_a.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_a.id}, remote: true %></td>		
+					<% else %>
+						<%= link_to vipbbsrsbb_a.ticket_num %>
+					<% end %>
 				<% end %>
-			<% end %>	
+			<% end %>		
 		</tr>
 
 		<tr>
 			<% @vipbbsrsbbs_b.each do |vipbbsrsbb_b| %>
-			<td id='<%= dom_id vipbbsrsbb_b %>' class="<%= vipbbsrsbb_b.status %>">
-				<% if vipbbsrsbb_b.status == false %>
-				<%= link_to vipbbsrsbb_b.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_b.id}, remote: true %></td>
-				<% elsif vipbbsrsbb_b.status == true && session[:company_name] == vipbbsrsbb_b.company_name %>
-				<%= link_to vipbbsrsbb_b.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_b.id}, remote: true %></td>		
+				<% if vipbbsrsbb_b.approved == 'yes' %>
+					<td class="<%= vipbbsrsbb_b.status %>"><a><%= vipbbsrsbb_b.ticket_num %></a></td>
 				<% else %>
-					<%= link_to vipbbsrsbb_b.ticket_num %>
+				<td id='<%= dom_id vipbbsrsbb_b %>' class="<%= vipbbsrsbb_b.status %>">
+					<% if vipbbsrsbb_b.status == false %>
+					<%= link_to vipbbsrsbb_b.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_b.id}, remote: true %></td>
+					<% elsif vipbbsrsbb_b.status == true && session[:company_name] == vipbbsrsbb_b.company_name %>
+					<%= link_to vipbbsrsbb_b.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_b.id}, remote: true %></td>		
+					<% else %>
+						<%= link_to vipbbsrsbb_b.ticket_num %>
+					<% end %>
 				<% end %>
 			<% end %>		
 		</tr>
 
 		<tr>
 			<% @vipbbsrsbbs_c.each do |vipbbsrsbb_c| %>
-			<td id='<%= dom_id vipbbsrsbb_c %>' class="<%= vipbbsrsbb_c.status %>">
-				<% if vipbbsrsbb_c.status == false %>
-				<%= link_to vipbbsrsbb_c.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_c.id}, remote: true %></td>
-				<% elsif vipbbsrsbb_c.status == true && session[:company_name] == vipbbsrsbb_c.company_name %>
-				<%= link_to vipbbsrsbb_c.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_c.id}, remote: true %></td>		
+				<% if vipbbsrsbb_c.approved == 'yes' %>
+					<td class="<%= vipbbsrsbb_c.status %>"><a><%= vipbbsrsbb_c.ticket_num %></a></td>
 				<% else %>
-					<%= link_to vipbbsrsbb_c.ticket_num %>
-				<% end %>
-			<% end %>		
+				<td id='<%= dom_id vipbbsrsbb_c %>' class="<%= vipbbsrsbb_c.status %>">
+					<% if vipbbsrsbb_c.status == false %>
+					<%= link_to vipbbsrsbb_c.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_c.id}, remote: true %></td>
+					<% elsif vipbbsrsbb_c.status == true && session[:company_name] == vipbbsrsbb_c.company_name %>
+					<%= link_to vipbbsrsbb_c.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_c.id}, remote: true %></td>		
+					<% else %>
+						<%= link_to vipbbsrsbb_c.ticket_num %>
+					<% end %>
+				<% end %>	
+			<% end %>	
 		</tr>
 
 		
 		<tr>
 			<% @vipbbsrsbbs_d.each do |vipbbsrsbb_d| %>
-			<td id='<%= dom_id vipbbsrsbb_d %>' class="<%= vipbbsrsbb_d.status %>">
-				<% if vipbbsrsbb_d.status == false %>
-				<%= link_to vipbbsrsbb_d.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_d.id}, remote: true %></td>
-				<% elsif vipbbsrsbb_d.status == true && session[:company_name] == vipbbsrsbb_d.company_name %>
-				<%= link_to vipbbsrsbb_d.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_d.id}, remote: true %></td>		
+				<% if vipbbsrsbb_d.approved == 'yes' %>
+					<td class="<%= vipbbsrsbb_d.status %>"><a><%= vipbbsrsbb_d.ticket_num %></a></td>
 				<% else %>
-					<%= link_to vipbbsrsbb_d.ticket_num %>
+				<td id='<%= dom_id vipbbsrsbb_d %>' class="<%= vipbbsrsbb_d.status %>">
+					<% if vipbbsrsbb_d.status == false %>
+					<%= link_to vipbbsrsbb_d.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_d.id}, remote: true %></td>
+					<% elsif vipbbsrsbb_d.status == true && session[:company_name] == vipbbsrsbb_d.company_name %>
+					<%= link_to vipbbsrsbb_d.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_d.id}, remote: true %></td>		
+					<% else %>
+						<%= link_to vipbbsrsbb_d.ticket_num %>
+					<% end %>
 				<% end %>
 			<% end %>		
 		</tr>
 
 		<tr>
 			<% @vipbbsrsbbs_e.each do |vipbbsrsbb_e| %>
-			<td id='<%= dom_id vipbbsrsbb_e %>' class="<%= vipbbsrsbb_e.status %>">
-				<% if vipbbsrsbb_e.status == false %>
-				<%= link_to vipbbsrsbb_e.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_e.id}, remote: true %></td>
-				<% elsif vipbbsrsbb_e.status == true && session[:company_name] == vipbbsrsbb_e.company_name %>
-				<%= link_to vipbbsrsbb_e.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_e.id}, remote: true %></td>		
+				<% if vipbbsrsbb_e.approved == 'yes' %>
+					<td class="<%= vipbbsrsbb_e.status %>"><a><%= vipbbsrsbb_e.ticket_num %></a></td>
 				<% else %>
-					<%= link_to vipbbsrsbb_e.ticket_num %>
-				<% end %>
-			<% end %>		
+				<td id='<%= dom_id vipbbsrsbb_e %>' class="<%= vipbbsrsbb_e.status %>">
+					<% if vipbbsrsbb_e.status == false %>
+					<%= link_to vipbbsrsbb_e.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_e.id}, remote: true %></td>
+					<% elsif vipbbsrsbb_e.status == true && session[:company_name] == vipbbsrsbb_e.company_name %>
+					<%= link_to vipbbsrsbb_e.ticket_num, {:controller => 'vipbbsrsbbs' ,:action => 'update_status', :id => vipbbsrsbb_e.id}, remote: true %></td>		
+					<% else %>
+						<%= link_to vipbbsrsbb_e.ticket_num %>
+					<% end %>
+				<% end %>	
+			<% end %>
 		</tr>
 	</table>
 
@@ -79,8 +99,13 @@
 			<h3>Reservations for this Section</h3>
 			<table>
 			<% @vipbbsrsbbs_with.each do |my| %>
-				<tr>
-					<td><%= my.ticket_num %> - <%= my.company_name %></td>
+				<tr id='<%= dom_id my %>'>
+					<td><%= my.ticket_num %> - <%= my.company_name %>
+					<% if my.approved == 'no' %>
+					 - <%= link_to('Approved', :action => 'approved', :id => my.id) %></td>
+					 <% else %>
+					 	- <%= link_to('DisApproved', :action => 'disapproved', :id => my.id) %></td>
+					 <% end %>
 				</tr>
 			<% end %>
 			</table>

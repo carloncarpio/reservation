@@ -24,4 +24,13 @@ class AccessController < ApplicationController
 
   def menu
   end
+
+  def logout
+    session[:username] = nil
+    session[:id] = nil
+    session[:company_name] = nil
+    session[:company_email] = nil
+    session[:company_contact] = nil
+    redirect_to :controller => 'access', :action => 'index'
+  end
 end

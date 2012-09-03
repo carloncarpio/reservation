@@ -153,4 +153,27 @@ class VipbbsrsbbsController < ApplicationController
     @my_vipbbsrsbbs = Vipbbsrsbb.where(:company_name => session[:company_name])
   end
 
+  def approved
+    @vipbbsrsbb = Vipbbsrsbb.find(params[:id])
+    @vipbbsrsbb.update_attribute :approved, 'yes'
+
+    respond_to do |format|
+      format.html { redirect_to :action => 'visual' }
+      UserMailer.send_mail(@vipbbsrsbb.company_email,@vipbbsrsbb.company_name).deliver
+      #format.json { head :no_content }
+      #format.js 
+    end
+  end
+
+  def disapproved
+     @vipbbsrsbb = Vipbbsrsbb.find(params[:id])
+     @vipbbsrsbb.update_attribute :approved, 'no'
+
+    respond_to do |format|
+      format.html { redirect_to :action => 'visual' }
+      #format.json { head :no_content }
+      #format.js 
+    end
+  end
+
 end

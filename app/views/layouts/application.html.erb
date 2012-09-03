@@ -28,7 +28,7 @@
           </div><!--/.nav-collapse -->
           <% if session[:username] %>
             <div class="welcome">
-              <p>Welcome <%= session[:username] %> | <%= link_to 'logout', :action => 'logout' %></p>
+              <p>Welcome <%= session[:username] %> | <%= link_to 'logout', :controller => 'access',:action => 'logout' %></p>
             </div>
            <% else %>
             <div id="signup"><%= link_to 'Sign Up', signup_path %></div>

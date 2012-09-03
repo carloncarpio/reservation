@@ -1,11 +1,14 @@
-<h1>Listing users</h1>
+<br/><br/><br/>
+<div class="container">
 
-<table>
+<h1>Users</h1>
+<br/>
+<table  class="table table-striped">
   <tr>
     <th>Username</th>
-    <th>Company name</th>
-    <th>Company contact</th>
-    <th>Company email</th>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Email</th>
     <th></th>
     <th></th>
     <th></th>
@@ -26,4 +29,6 @@
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path, :class => 'btn btn-primary' %>
+
+</div>

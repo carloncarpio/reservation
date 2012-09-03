@@ -3,11 +3,11 @@
 <h1>VIP BB / SRS BB</h1>
 <br />
 <ul class="nav-in">
-    <li><%= link_to 'Section A', {:action => 'index'}, :class => 'btn btn-danger' %></li>
-    <li><%= link_to 'Section B', {:action => 'index_b'}, :class => 'btn btn-danger' %></li>
-    <li><%= link_to 'Section C', {:action => 'index_c'}, :class => 'btn btn-danger' %></li>
-    <li><%= link_to 'Section D', {:action => 'index_d'}, :class => 'btn btn-danger' %></li>
-    <li><%= link_to 'Section E', {:action => 'index_e'}, :class => 'btn btn-danger' %></li>
+    <li><%= link_to 'Section A', {:controller => 'Vipbbsrsbbs',:action => 'index'}, :class => 'btn btn-danger' %></li>
+    <li><%= link_to 'Section B', {:controller => 'Vipbbsrsbbs',:action => 'index_b'}, :class => 'btn btn-danger' %></li>
+    <li><%= link_to 'Section C', {:controller => 'Vipbbsrsbbs',:action => 'index_c'}, :class => 'btn btn-danger' %></li>
+    <li><%= link_to 'Section D', {:controller => 'Vipbbsrsbbs',:action => 'index_d'}, :class => 'btn btn-danger' %></li>
+    <li><%= link_to 'Section E', {:controller => 'Vipbbsrsbbs',:action => 'index_e'}, :class => 'btn btn-danger' %></li>
 </ul>
 <br />
 <table class="table table-striped">
@@ -29,7 +29,7 @@
     <td><%= vipbbsrsbb.company_name %></td>
     <td><%= vipbbsrsbb.company_contact %></td>
     <td><%= vipbbsrsbb.company_email %></td>
-    <td><%= vipbbsrsbb.status %></td>
+    <td><%= vipbbsrsbb.approved %></td>
     <% if session[:username] == 'admin' %>
         <td><%= link_to 'Show', vipbbsrsbb %></td>
         <td><%= link_to 'Edit', edit_vipbbsrsbb_path(vipbbsrsbb) %></td>
