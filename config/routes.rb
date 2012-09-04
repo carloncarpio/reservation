@@ -1,4 +1,6 @@
 Reservation::Application.routes.draw do
+  resources :lbdds
+
   get "access/login"
 
   get "access/menu"

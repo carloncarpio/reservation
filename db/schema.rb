@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120903004826) do
+ActiveRecord::Schema.define(:version => 20120904060406) do
+
+  create_table "lbdds", :force => true do |t|
+    t.string   "ticket_num"
+    t.string   "company_name"
+    t.string   "company_contact"
+    t.integer  "flag"
+    t.string   "status"
+    t.string   "section"
+    t.integer  "price"
+    t.string   "approved"
+    t.string   "paid"
+    t.integer  "user_id"
+    t.string   "main_section"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "company_email"
+  end
+
+  add_index "lbdds", ["user_id"], :name => "index_lbdds_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -26,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20120903004826) do
 
   create_table "vipbbsrsbbs", :force => true do |t|
     t.string   "ticket_num"
-    t.integer  "quantity"
     t.string   "company_name"
     t.string   "company_contact"
     t.string   "company_email"
@@ -37,6 +55,11 @@ ActiveRecord::Schema.define(:version => 20120903004826) do
     t.string   "section"
     t.string   "price"
     t.string   "approved"
+    t.string   "paid"
+    t.integer  "user_id"
+    t.string   "main_section"
   end
+
+  add_index "vipbbsrsbbs", ["user_id"], :name => "index_vipbbsrsbbs_on_user_id"
 
 end

@@ -97,20 +97,33 @@
 	<div id="my_reserve">
 		<% if session[:username] == 'admin' %>
 			<h3>Reservations for this Section</h3>
-			<table>
+			<table class="table table-striped">
+				<tr>
+					<td>Seat</td>
+					<td>Company</td>
+					<td>Paid</td>
+					<td>Approved</td>
+				</tr>
 			<% @vipbbsrsbbs_with.each do |my| %>
 				<tr id='<%= dom_id my %>'>
-					<td><%= my.ticket_num %> - <%= my.company_name %>
+					<td><%= my.ticket_num %></td>
+					<td><%= link_to(my.company_name, :action => 'show_comp', :id => my.user_id) %></td>
+					<td><% if my.paid == '' %>
+						<%= link_to('No') %>
+						<% else %>
+						<%= link_to('Yes') %>	
+						<% end %>
+					</td>
 					<% if my.approved == 'no' %>
-					 - <%= link_to('Approved', :action => 'approved', :id => my.id) %></td>
+					 <td><%= link_to('Approved', :action => 'approved', :id => my.id) %></td>
 					 <% else %>
-					 	- <%= link_to('DisApproved', :action => 'disapproved', :id => my.id) %></td>
+					 	<td><%= link_to('DisApproved', :action => 'disapproved', :id => my.id) %></td>
 					 <% end %>
 				</tr>
 			<% end %>
 			</table>
 		<% else %>
-			<table>
+			<table class="table table-striped">
 				<h4>My Reservation</h4>
 					<% if @my_vipbbsrsbbs.empty? %>
 						<p>You have no reservation for this section</p>

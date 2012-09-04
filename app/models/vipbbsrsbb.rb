@@ -1,5 +1,7 @@
 class Vipbbsrsbb < ActiveRecord::Base
 
+	belongs_to :user
+
 	def self.find_section(section="")
 		section = Vipbbsrsbb.where(:section => section)
 	end

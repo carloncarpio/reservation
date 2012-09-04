@@ -10,7 +10,7 @@
 }
 a{color:#666;}
 
-table#visual_vipbbsrsbb{margin:20px 0;}
+table#visual_vipbbsrsbb,table#visual_lbdd{margin:20px 0;}
 table#visual_vipbbsrsbb td{border: 1px solid #000;//background-color: red;text-align: center;}
 .false, .true {border: 1px solid #000;text-align: center;width:20px;}
 //.false{background-color: red;color:blue;}
@@ -28,7 +28,7 @@ table a:hover{color:#000;}
 
 .welcome{float:right;margin-top:10px;}
 
-#my_reserve{position: absolute;right:0;top:100px;width:300px;}
+#my_reserve{position: absolute;right:0;top:100px;width:400px;}
 
 .nav-in{position: absolute;right:0;top:5px;}
 ul{position: absolute;}

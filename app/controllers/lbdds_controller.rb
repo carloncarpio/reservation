@@ -1,111 +1,127 @@
-class VipbbsrsbbsController < ApplicationController
-  # GET /vipbbsrsbbs
-  # GET /vipbbsrsbbs.json
+class LbddsController < ApplicationController
+  # GET /lbdds
+  # GET /lbdds.json
   def index
-    @vipbbsrsbbs = Vipbbsrsbb.all
-    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'A')
+    @lbdds = Lbdd.all
+    @lbdds = Lbdd.where(:section => 'A')
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @vipbbsrsbbs }
+      format.json { render json: @lbdds }
     end
   end
 
   def index_b
-    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'B')
+    @lbdds = Lbdd.where(:section => 'B')
   end
   def index_c
-    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'C')
+    @lbdds = Lbdd.where(:section => 'C')
   end
   def index_d
-    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'D')
+    @lbdds = Lbdd.where(:section => 'D')
   end
   def index_e
-    @vipbbsrsbbs = Vipbbsrsbb.where(:section => 'E')
+    @lbdds = Lbdd.where(:section => 'E')
+  end
+   def index_f
+    @lbdds = Lbdd.where(:section => 'F')
+  end
+   def index_g
+    @lbdds = Lbdd.where(:section => 'G')
+  end
+   def index_h
+    @lbdds = Lbdd.where(:section => 'H')
+  end
+   def index_i
+    @lbdds = Lbdd.where(:section => 'I')
   end
 
-  # GET /vipbbsrsbbs/1
-  # GET /vipbbsrsbbs/1.json
+
+  # GET /lbdds/1
+  # GET /lbdds/1.json
   def show
-    @vipbbsrsbb = Vipbbsrsbb.find(params[:id])
+    @lbdd = Lbdd.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @vipbbsrsbb }
+      format.json { render json: @lbdd }
     end
   end
 
-  # GET /vipbbsrsbbs/new
-  # GET /vipbbsrsbbs/new.json
+  # GET /lbdds/new
+  # GET /lbdds/new.json
   def new
-    @vipbbsrsbb = Vipbbsrsbb.new
+    @lbdd = Lbdd.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @vipbbsrsbb }
+      format.json { render json: @lbdd }
     end
   end
 
-  # GET /vipbbsrsbbs/1/edit
+  # GET /lbdds/1/edit
   def edit
-    @vipbbsrsbb = Vipbbsrsbb.find(params[:id])
+    @lbdd = Lbdd.find(params[:id])
   end
 
-  # POST /vipbbsrsbbs
-  # POST /vipbbsrsbbs.json
+  # POST /lbdds
+  # POST /lbdds.json
   def create
-    @vipbbsrsbb = Vipbbsrsbb.new(params[:vipbbsrsbb])
+    @lbdd = Lbdd.new(params[:lbdd])
 
     respond_to do |format|
-      if @vipbbsrsbb.save
-        format.html { redirect_to @vipbbsrsbb, notice: 'Vipbbsrsbb was successfully created.' }
-        format.json { render json: @vipbbsrsbb, status: :created, location: @vipbbsrsbb }
+      if @lbdd.save
+        format.html { redirect_to @lbdd, notice: 'Lbdd was successfully created.' }
+        format.json { render json: @lbdd, status: :created, location: @lbdd }
       else
         format.html { render action: "new" }
-        format.json { render json: @vipbbsrsbb.errors, status: :unprocessable_entity }
+        format.json { render json: @lbdd.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /vipbbsrsbbs/1
-  # PUT /vipbbsrsbbs/1.json
+  # PUT /lbdds/1
+  # PUT /lbdds/1.json
   def update
-    @vipbbsrsbb = Vipbbsrsbb.find(params[:id])
+    @lbdd = Lbdd.find(params[:id])
 
     respond_to do |format|
-      if @vipbbsrsbb.update_attributes(params[:vipbbsrsbb])
-        format.html { redirect_to @vipbbsrsbb, notice: 'Vipbbsrsbb was successfully updated.' }
+      if @lbdd.update_attributes(params[:lbdd])
+        format.html { redirect_to @lbdd, notice: 'Lbdd was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @vipbbsrsbb.errors, status: :unprocessable_entity }
+        format.json { render json: @lbdd.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /vipbbsrsbbs/1
-  # DELETE /vipbbsrsbbs/1.json
+  # DELETE /lbdds/1
+  # DELETE /lbdds/1.json
   def destroy
-    @vipbbsrsbb = Vipbbsrsbb.find(params[:id])
-    @vipbbsrsbb.destroy
+    @lbdd = Lbdd.find(params[:id])
+    @lbdd.destroy
 
     respond_to do |format|
-      format.html { redirect_to vipbbsrsbbs_url }
-      #format.json { head :no_content }
-      format.js 
+      format.html { redirect_to lbdds_url }
+      format.json { head :no_content }
     end
   end
 
   def visual
-    @vipbbsrsbbs_a = Vipbbsrsbb.find_section('A')
-    @vipbbsrsbbs_b = Vipbbsrsbb.find_section('B')
-    @vipbbsrsbbs_c = Vipbbsrsbb.find_section('C')
-    @vipbbsrsbbs_d = Vipbbsrsbb.find_section('D')
-    @vipbbsrsbbs_e = Vipbbsrsbb.find_section('E')
+    @lbdds_a = Lbdd.find_section('A')
+    @lbdds_b = Lbdd.find_section('B')
+    @lbdds_c = Lbdd.find_section('C')
+    @lbdds_d = Lbdd.find_section('D')
+    @lbdds_e = Lbdd.find_section('E')
+    @lbdds_f = Lbdd.find_section('F')
+    @lbdds_g = Lbdd.find_section('G')
+    @lbdds_h = Lbdd.find_section('H')
+    @lbdds_i = Lbdd.find_section('I')
 
-    @vipbbsrsbbs_with = Vipbbsrsbb.where(:status => true)
-    @vipbbsrsbbs = Vipbbsrsbb.all
-    @my_vipbbsrsbbs = Vipbbsrsbb.find_reserve(session[:company_name])
+    @lbdds_with = Lbdd.where(:status => true)
+    @lbdds = Lbdd.all
+    @my_lbdds = Lbdd.find_reserve(session[:company_name])
   end
 
   def update_status
@@ -175,15 +191,6 @@ class VipbbsrsbbsController < ApplicationController
       format.html { redirect_to :action => 'visual' }
       #format.json { head :no_content }
       #format.js 
-    end
-  end
-
-  def show_comp
-    @user = User.find(params[:id])
-    @reserves = Vipbbsrsbb.where(:company_name => @user.company_name)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
     end
   end
 
